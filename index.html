@@ -1,1 +1,521 @@
-Hello 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Vikas Dwivedi — Researcher</title>
+  <meta name="description" content="Personal academic homepage of Dr. Vikas Dwivedi: research, publications, projects, teaching, and contact information." />
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="Dr. Vikas Dwivedi — Researcher" />
+  <meta property="og:description" content="Research, publications, projects, teaching, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:url" content="https://YOUR_USERNAME.github.io" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <style>
+    /* ====== Design tokens ====== */
+    :root {
+      --bg: #0b1020;          /* slate-950 */
+      --panel: #0f172a;       /* slate-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e2e8f0;        /* slate-200 */
+      --accent: #22d3ee;      /* cyan-400 */
+      --accent-2: #38bdf8;    /* sky-400 */
+      --ring: rgba(56,189,248,.35);
+      --shadow: rgba(2,6,23,.6);
+      --link: #7dd3fc;
+      --code-bg: #0b1220;
+    }
+    :root.light {
+      --bg: #ffffff;
+      --panel: #f8fafc;
+      --muted: #475569;
+      --text: #0f172a;
+      --accent: #0284c7;
+      --accent-2: #06b6d4;
+      --ring: rgba(2,132,199,.25);
+      --shadow: rgba(15,23,42,.1);
+      --link: #0369a1;
+      --code-bg: #f1f5f9;
+    }
+
+    /* ====== Base ====== */
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.07), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; border-radius: 1rem; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+
+    /* ====== Header / Nav ====== */
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(1.1) blur(8px);
+      background: color-mix(in oklab, var(--panel) 88%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 0;
+    }
+    .brand { display: flex; align-items: center; gap: .75rem; font-weight: 700; letter-spacing: .2px; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 4px var(--ring); }
+    .nav a { font-weight: 600; opacity: .9; }
+    .nav .links { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem .9rem; border-radius: .75rem; border: 1px solid color-mix(in oklab, var(--muted) 15%, transparent); background: color-mix(in oklab, var(--panel) 92%, transparent); box-shadow: 0 8px 24px var(--shadow); font-weight: 600; }
+    .btn:hover { box-shadow: 0 10px 28px var(--shadow); transform: translateY(-1px); }
+
+    /* ====== Hero ====== */
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; padding: 4.5rem 0 2rem; align-items: center; }
+    .title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0; }
+    .subtitle { margin-top: .75rem; color: var(--muted); max-width: 60ch; }
+    .badges { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.25rem; }
+    .badge { padding: .35rem .6rem; border-radius: .6rem; border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); background: color-mix(in oklab, var(--panel) 92%, transparent); font-size: .9rem; }
+    .headshot { justify-self: end; border-radius: 1.25rem; border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); box-shadow: 0 20px 60px var(--shadow); }
+
+    /* ====== Sections ====== */
+    section { padding: 3.5rem 0; }
+    .section-title { font-size: 1.6rem; margin: 0 0 1.4rem; letter-spacing: .2px; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .card { border: 1px solid color-mix(in oklab, var(--muted) 18%, transparent); background: color-mix(in oklab, var(--panel) 96%, transparent); border-radius: 1rem; padding: 1.1rem; box-shadow: 0 10px 30px var(--shadow); }
+    .card h3 { margin: .2rem 0 .6rem; font-size: 1.05rem; }
+    .muted { color: var(--muted); }
+    .list { display: grid; gap: .9rem; }
+    .pub { display: grid; gap: .35rem; padding: 1rem; border: 1px dashed color-mix(in oklab, var(--muted) 26%, transparent); border-radius: .9rem; background: color-mix(in oklab, var(--panel) 96%, transparent); }
+    .pub .meta { font-size: .95rem; color: var(--muted); }
+    .pub .tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .tag { font-size: .8rem; padding: .2rem .45rem; border-radius: .5rem; border: 1px solid color-mix(in oklab, var(--muted) 22%, transparent); }
+
+    /* ====== Footer ====== */
+    footer { padding: 2.5rem 0; color: var(--muted); border-top: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); }
+
+    /* ====== Utilities ====== */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .flex { display: flex; gap: .8rem; align-items: center; flex-wrap: wrap; }
+    .right { margin-left: auto; }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 3rem; }
+      .headshot { justify-self: start; max-width: 280px; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .nav .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Top Nav ===== -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Vikas Dwivedi</span>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeBtn" class="btn" type="button" aria-label="Toggle theme">🌓 Theme</button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <div class="container hero">
+    <div>
+      <h1 class="title">Dr. Vikas Dwivedi</h1>
+      <p class="subtitle">Postdoctoral Researcher at CREATIS (INSA Lyon). Research interests: domain-/biophysics-informed learning, scientific ML, PDE-constrained learning, CFD, medical imaging, and inverse problems.</p>
+      <div class="badges" aria-label="Research areas">
+        <span class="badge">Physics-Informed ML</span>
+        <span class="badge">Kernel/ELM</span>
+        <span class="badge">Bayesian Methods</span>
+        <span class="badge">Computational Fluid Dynamics</span>
+      </div>
+      <div class="flex" style="margin-top:1.1rem">
+        <a class="btn" href="assets/Vikas_Dwivedi_CV.pdf" download>⬇️ Download CV</a>
+        <a class="btn" href="#contact">📨 Get in touch</a>
+      </div>
+    </div>
+    <img class="headshot" src="assets/profile.jpg" width="360" height="360" alt="Portrait of Vikas Dwivedi" />
+  </div>
+
+  <main class="container">
+    <!-- ===== About ===== -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            I am a postdoctoral researcher at the <strong>CREATIS Biomedical Imaging Laboratory (INSA Lyon)</strong>. Previously, I was a postdoc at <strong>SUNY–Albany</strong> (USA) and at the <strong>Robert Bosch Center for Data Science and AI, IIT Madras</strong> (India). My work lies at the intersection of <em>domain-informed AI</em>, physics-/biophysics-informed learning, and fast, interpretable solvers for PDE-constrained problems in fluid mechanics and medical imaging.
+          </p>
+          <p>
+            Current themes include curriculum learning-driven Physics-Informed Extreme Learning Machines (PI-ELMs), kernel-adaptive methods (KAPI/KNO), and uncertainty quantification for inverse problems.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Quick links</h3>
+          <div class="list">
+            <div class="flex"><span>📧</span><a href="mailto:vikas.dwivedi90@gmail.com" rel="me">vikas.dwivedi90@gmail.com</a></div>
+            <div class="flex"><span>🐙</span><a href="https://github.com/YOUR_USERNAME" rel="me">github.com/YOUR_USERNAME</a></div>
+            <div class="flex"><span>🔗</span><a href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en" rel="me">Google Scholar</a></div>
+            <div class="flex"><span>▶️</span><a href="https://www.youtube.com/watch?v=ogRn6TMlKgw&t=1725s" rel="me">YouTube talk</a></div>
+            <div class="flex"><span>💼</span><a href="https://www.linkedin.com/in/YOUR_PROFILE/" rel="me">LinkedIn</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Research ===== -->
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Physics-/Biophysics-Informed Learning</h3>
+          <p class="muted">Domain-informed AI for PDE-constrained problems; inverse problems in medical imaging and flows.</p>
+        </article>
+        <article class="card">
+          <h3>PI-ELM & Curriculum Learning</h3>
+          <p class="muted">Fast, stable solvers for fluid mechanics and hemodynamics using curriculum-driven training.</p>
+        </article>
+        <article class="card">
+          <h3>Kernel-Adaptive Methods (KAPI/KNO)</h3>
+          <p class="muted">Compact kernel distributions (μ, σ) for parametric PDEs; interpretable and efficient.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Publications ===== -->
+    <section id="publications">
+      <h2 class="section-title">Selected Publications</h2>
+      <div class="list">
+        <article class="pub">
+          <div><strong>Curriculum learning-driven PI-ELMs for fluid flow simulations</strong></div>
+          <div class="meta">V. Dwivedi, B. Sixou, M. Sigovan — <em>Neurocomputing</em>, 2025</div>
+          <div class="flex">
+            <a class="btn" href="https://doi.org/10.1016/j.neucom.2025.130924">DOI</a>
+          </div>
+          <div class="tags"><span class="tag">PI-ELM</span><span class="tag">Curriculum</span><span class="tag">Flows</span></div>
+        </article>
+        <article class="pub">
+          <div><strong>Physics-informed contour selection for rapid image segmentation</strong></div>
+          <div class="meta">V. Dwivedi, B. Srinivasan, G. Krishnamurthi — <em>Scientific Reports</em>, 2024</div>
+          <div class="flex"><a class="btn" href="https://doi.org/10.1038/s41598-024-57281-x">DOI</a></div>
+          <div class="tags"><span class="tag">Medical Imaging</span><span class="tag">PDE</span></div>
+        </article>
+        <article class="pub">
+          <div><strong>A normal equation-based extreme learning machine for solving linear PDEs</strong></div>
+          <div class="meta">V. Dwivedi, B. Srinivasan — <em>ASME JCISE</em>, 2021</div>
+          <div class="flex"><a class="btn" href="https://doi.org/10.1115/1.4051530">DOI</a></div>
+          <div class="tags"><span class="tag">ELM</span><span class="tag">Linear PDEs</span></div>
+        </article>
+        <article class="pub">
+          <div><strong>Distributed learning machines for solving forward and inverse PDE problems</strong></div>
+          <div class="meta">V. Dwivedi, N. Parashar, B. Srinivasan — <em>Neurocomputing</em>, 2020</div>
+          <div class="flex"><a class="btn" href="https://doi.org/10.1016/j.neucom.2020.09.006">DOI</a></div>
+        </article>
+        <article class="pub">
+          <div><strong>Solution of biharmonic equation in complicated geometries with PIELM</strong></div>
+          <div class="meta">V. Dwivedi, B. Srinivasan — <em>ASME JCISE</em>, 2020</div>
+          <div class="flex"><a class="btn" href="https://doi.org/10.1115/1.4046892">DOI</a></div>
+        </article>
+        <article class="pub">
+          <div><strong>Physics informed extreme learning machine (PIELM)</strong></div>
+          <div class="meta">V. Dwivedi, B. Srinivasan — <em>Neurocomputing</em>, 2019</div>
+          <div class="flex"><a class="btn" href="https://doi.org/10.1016/j.neucom.2019.12.099">DOI</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Conferences ===== -->
+    <section id="conferences">
+      <h2 class="section-title">Conference Proceedings</h2>
+      <div class="list">
+        <article class="pub">
+          <div><strong>Global versus Local: Evaluating AlexNet Architectures for Tropical Cyclone Intensity Estimation</strong></div>
+          <div class="meta">V. Dwivedi — ICPR 2024, LNCS (Springer)</div>
+          <div class="flex"><a class="btn" href="https://link.springer.com/chapter/10.1007/978-3-031-78186-5_27">Springer Link</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Talks ===== -->
+    <section id="talks">
+      <h2 class="section-title">Presentations (Selected)</h2>
+      <ul class="list">
+        <li><strong>Curriculum-Learning PIELMs for Hemodynamic Flows</strong> — 17th OPT Workshop @ NeurIPS, San Diego, USA (Dec 2025).</li>
+        <li><strong>Empirical-Bayes XTFC for Inverse Parameter Estimation</strong> — 17th OPT Workshop @ NeurIPS, San Diego, USA (Dec 2025).</li>
+        <li><strong>Deep vs. Shallow: Benchmarking Physics-Informed Neural Architectures on the Biharmonic Equation</strong> — 8th ML4PS Workshop @ NeurIPS, San Diego, USA (Dec 2025).</li>
+      </ul>
+    </section>
+
+    <!-- ===== Preprints ===== -->
+    <section id="preprints">
+      <h2 class="section-title">Preprints / Under Review</h2>
+      <div class="list">
+        <article class="pub">
+          <div><strong>Kernel-Adaptive PI-ELMs for Forward and Inverse Problems in PDEs with Sharp Gradients</strong></div>
+          <div class="meta">V. Dwivedi, B. Srinivasan, M. Sigovan, B. Sixou — 2025</div>
+          <div class="flex"><a class="btn" href="https://arxiv.org/abs/2507.10241">arXiv:2507.10241</a></div>
+        </article>
+        <article class="pub">
+          <div><strong>Gated X-TFC: Soft Domain Decomposition for Forward and Inverse Problems in Sharp-Gradient PDEs</strong></div>
+          <div class="meta">V. Dwivedi, E. Schiassi, M. Sigovan, B. Sixou — 2025</div>
+          <div class="flex"><a class="btn" href="https://arxiv.org/abs/2510.01039">arXiv:2510.01039</a></div>
+        </article>
+        <article class="pub">
+          <div><strong>Towards Fast Option Pricing PDE Solvers Powered by PIELM</strong></div>
+          <div class="meta">A. G. Srinivasan, J. Said, S. Pentela, V. Dwivedi, B. Srinivasan — 2025</div>
+          <div class="flex"><a class="btn" href="https://arxiv.org/abs/2510.04322">arXiv:2510.04322</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Education & Experience ===== -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="list">
+        <div class="card">
+          <h3>Ph.D., Mechanical Engineering — IIT Madras, India <span class="muted">(Jan 2015 – Mar 2021)</span></h3>
+          <p class="muted">Supervisor: Prof. Balaji Srinivasan (Mech Engg & Wadhwani School of Data Science & AI). Thesis: <em>Physics Enhanced Machine Learning Methods for Flow Simulation</em>. <strong>Best PhD Thesis Award in Data Science (2021)</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>M.Tech, Applied Mechanics — IIT Delhi, India <span class="muted">(Jul 2012 – Nov 2014)</span></h3>
+        </div>
+        <div class="card">
+          <h3>B.E., Mechanical — IET-DAVV, India <span class="muted">(Jul 2007 – May 2011)</span></h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="list">
+        <div class="card">
+          <h3>Postdoctoral Researcher — CREATIS Biomedical Imaging Laboratory, INSA Lyon, France <span class="muted">(Nov 2024 – Present)</span></h3>
+          <p class="muted">Biophysics-informed medical imaging; curriculum-learning PIELMs for hemodynamic flows; inverse problems.</p>
+        </div>
+        <div class="card">
+          <h3>Postdoctoral Researcher — State University of New York at Albany, USA <span class="muted">(Jul 2023 – May 2024)</span></h3>
+          <p class="muted">Tropical cyclone intensity estimation; evaluating CNN backbones for Dvorak-style tasks.</p>
+        </div>
+        <div class="card">
+          <h3>Postdoctoral Researcher — Robert Bosch Center for Data Science and AI, IIT Madras, India <span class="muted">(Jul 2022 – Mar 2023)</span></h3>
+          <p class="muted">Physics-informed medical image segmentation; PDE-constrained regularization for fast contour selection.</p>
+        </div>
+        <div class="card">
+          <h3>Data Scientist — Vunet Systems, Bangalore, India <span class="muted">(Apr 2020 – Jun 2022)</span></h3>
+          <p class="muted">Business/performance observability platforms; time-series anomaly detection and KPI attribution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Honors & Skills ===== -->
+    <section id="honors">
+      <h2 class="section-title">Honors & Service</h2>
+      <ul class="list">
+        <li><strong>Best PhD Thesis Award in Data Science (2021)</strong>, IIT Madras.</li>
+        <li><strong>Invited Lecture</strong>: "Scientific Machine Learning for Fluid Mechanics", IIT Kanpur (6 Nov 2023).</li>
+        <li><strong>Keynote Speaker</strong>: International Conference in Applied Mechanics, Machine Learning and Applied Computation (2022), NIT Raipur.</li>
+        <li><strong>MOOC</strong>: Short course on Data-Centric AI, NPTEL.</li>
+        <li><strong>Reviewer</strong>: <em>Neurocomputing</em>, <em>Scientific Reports</em>, <em>Applied Mathematical Modelling</em>.</li>
+        <li><strong>GATE 2011</strong>: AIR 325/81175 (Mechanical Engineering).</li>
+        <li><strong>Scholarships</strong>: MHRD scholarship during Masters and PhD.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Programming</h3><p class="muted">Python, MATLAB; TensorFlow; NumPy/SciPy; scikit-learn; optimization & numerical linear algebra</p></div>
+        <div class="card"><h3>Domains</h3><p class="muted">Physics-/biophysics-informed learning, PDE-constrained optimization, CFD, medical imaging, inverse problems</p></div>
+        <div class="card"><h3>Tools</h3><p class="muted">Git, Linux; LaTeX; scientific plotting & visualization</p></div>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2 class="section-title">References</h2>
+      <div class="list">
+        <div class="card">
+          <h3>Prof. Balaji Srinivasan</h3>
+          <p class="muted">Dept. of Mechanical Engineering & Wadhwani School of Data Science & AI, IIT Madras — <a href="mailto:sbalaji@iitm.ac.in">sbalaji@iitm.ac.in</a></p>
+        </div>
+        <div class="card">
+          <h3>Prof. Ganapathy Krishnamurthi</h3>
+          <p class="muted">Dept. of Engineering Design & Wadhwani School of Data Science & AI, IIT Madras — <a href="mailto:gankrish@iitm.ac.in">gankrish@iitm.ac.in</a></p>
+        </div>
+        <div class="card">
+          <h3>Mr. Jithesh Kaveetil</h3>
+          <p class="muted">Co-Founder & CTO, Vunet Systems — <a href="mailto:jithesh@vunetsystems.com">jithesh@vunetsystems.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>PI-ELM Toolbox</h3>
+          <p class="muted">MATLAB/Python implementations with curriculum learning, Adam optimization, and UQ.</p>
+          <div class="flex"><a class="btn" href="#">Repository</a><a class="btn" href="#">Docs</a></div>
+        </article>
+        <article class="card">
+          <h3>KAPI Framework</h3>
+          <p class="muted">Distributional optimization over kernel parameters for stiff PDEs.</p>
+          <div class="flex"><a class="btn" href="#">Repository</a></div>
+        </article>
+        <article class="card">
+          <h3>Teaching Materials</h3>
+          <p class="muted">Slides and notebooks on Bayesian regression, evidence maximization, and PDE solvers.</p>
+          <div class="flex"><a class="btn" href="#">Materials</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Teaching ===== -->
+    <section id="teaching">
+      <h2 class="section-title">Teaching</h2>
+      <div class="list">
+        <div class="card">
+          <h3>Bayesian Linear Regression (Guest Lecture)</h3>
+          <p class="muted">Slides, code, and exercises on priors, evidence maximization, and UQ.</p>
+          <div class="flex">
+            <a class="btn" href="#">Slides</a>
+            <a class="btn" href="#">Notebook</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Physics-Informed Learning for PDEs</h3>
+          <p class="muted">From PINNs to PI-ELMs and KAPI; stability and efficiency.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="two-col">
+        <form class="card" name="contact" method="post" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <label>
+            <span class="sr-only">Name</span>
+            <input name="name" required placeholder="Your name" style="width:100%; padding:.8rem 1rem; margin:.3rem 0 0.6rem; border-radius:.7rem; border:1px solid color-mix(in oklab, var(--muted) 24%, transparent); background: var(--panel); color: var(--text)" />
+          </label>
+          <label>
+            <span class="sr-only">Email</span>
+            <input type="email" name="email" required placeholder="Email" style="width:100%; padding:.8rem 1rem; margin:.3rem 0 0.6rem; border-radius:.7rem; border:1px solid color-mix(in oklab, var(--muted) 24%, transparent); background: var(--panel); color: var(--text)" />
+          </label>
+          <label>
+            <span class="sr-only">Message</span>
+            <textarea name="message" required rows="5" placeholder="Message" style="width:100%; padding:.8rem 1rem; margin:.3rem 0 0.6rem; border-radius:.7rem; border:1px solid color-mix(in oklab, var(--muted) 24%, transparent); background: var(--panel); color: var(--text)"></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+        </form>
+        <div>
+          <p>
+            For collaborations, talks, or mentoring, feel free to reach out by email. I’m open to co-advising student projects in physics-informed learning and computational mechanics.
+          </p>
+          <ul>
+            <li>📍 Lyon, France</li>
+            <li>✉️ <a href="mailto:vikas.dwivedi90@gmail.com">vikas.dwivedi90@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container flex">
+      <div>© <span id="y"></span> Vikas Dwivedi • Last updated <span id="lu"></span></div>
+      <div class="right">Made with ♥ and vanilla HTML/CSS/JS</div>
+    </div>
+  </footer>
+
+  <!-- ===== Script: theme + utilities ===== -->
+  <script>
+    // Respect system preference on first load
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const storedTheme = localStorage.getItem('theme');
+    if ((storedTheme === 'light') || (!storedTheme && prefersLight)) {
+      document.documentElement.classList.add('light');
+    }
+    // Toggle theme
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const el = document.documentElement;
+      const isLight = el.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Footer dates
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('lu').textContent = new Date(document.lastModified).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'});
+
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Copy BibTeX buttons
+    document.querySelectorAll('button[data-bibtex]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.bibtex);
+          btn.textContent = '✓ Copied'; setTimeout(() => btn.textContent = 'Copy BibTeX', 1500);
+        } catch {
+          alert('Copy failed. Your browser may block clipboard access.');
+        }
+      })
+    })
+  </script>
+
+  <!-- ===== Schema.org (edit URLs/IDs) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Vikas Dwivedi",
+    "jobTitle": "Postdoctoral Researcher",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "CREATIS Laboratory, INSA Lyon"
+    },
+    "email": "mailto:vikas.dwivedi90@gmail.com",
+    "image": "https://YOUR_USERNAME.github.io/assets/profile.jpg",
+    "url": "https://YOUR_USERNAME.github.io/",
+    "sameAs": [
+      "https://github.com/YOUR_USERNAME",
+      "https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en",
+      "https://www.youtube.com/watch?v=ogRn6TMlKgw&t=1725s",
+      "https://www.linkedin.com/in/YOUR_PROFILE/"
+    ]
+  }
+  </script>
+
+  <!-- ===== Editing guide ===== -->
+  <!--
+  QUICK EDITING GUIDE
+  1) Replace YOUR_USERNAME, YOURID, YOUR-ORCID, YOUR_PROFILE, vikas.dwivedi90@gmail.com above.
+  2) Put your CV at assets/Vikas_Dwivedi_CV.pdf and your headshot at assets/profile.jpg (create /assets folder).
+  3) Add/duplicate .pub blocks under #publications with PDF/Code links and BibTeX (data-bibtex attribute).
+  4) Update Research and Projects cards. Each card is a simple <article class="card">...
+  5) Optional: The contact form uses Netlify static forms. For GitHub Pages, remove data-netlify or keep as-is without backend.
+  6) Change colors by editing :root tokens at the top; toggle light/dark with the button.
+  7) Set og:image and favicon in /assets.
+  -->
+</body>
+</html>
