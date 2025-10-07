@@ -1,1 +1,225 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Vikas Dwivedi — Academic Homepage</title>
+  <meta name="description" content="Dr. Vikas Dwivedi — Postdoctoral Researcher at CREATIS Biomedical Imaging Laboratory, INSA-Lyon. Research: domain-informed AI, physics/biophysics-informed learning, SciML, PDE-constrained learning, CFD, medical imaging, inverse problems." />
+
+  <!-- Open Graph / Twitter for rich link previews -->
+  <meta property="og:title" content="Dr. Vikas Dwivedi — Academic Homepage" />
+  <meta property="og:description" content="Postdoctoral Researcher at CREATIS, INSA-Lyon. Domain-informed AI • SciML • PDE-constrained learning • CFD • Medical Imaging." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    /* ------- CSS Reset (lightweight) ------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+    /* ------- Design tokens ------- */
+    :root {
+      --bg: #0b0c10;
+      --card: #0f1117;
+      --text: #e6e6e6;
+      --muted: #b7bec7;
+      --accent: #6ee7b7;  /* mint */
+      --accent-2: #93c5fd; /* soft blue */
+      --border: #1f2937;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --maxw: 1080px;
+      --gap: 22px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow: 0 10px 30px rgba(0,0,0,.08);
+      }
+    }
+
+    body { background: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(20,184,166,.10), transparent), var(--bg); color: var(--text); line-height: 1.6; }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 36px 18px 80px; }
+
+    header {
+      display: grid; gap: var(--gap);
+      grid-template-columns: 140px 1fr; align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 60%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px; margin-bottom: 28px;
+    }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.15); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+    .title h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 4px 0; letter-spacing: .2px; }
+    .meta { color: var(--muted); margin: 6px 0 0; }
+    .badges { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding: 10px 14px; border: 1px solid var(--border); background: var(--card); border-radius: 999px; font-weight:600; box-shadow: var(--shadow); }
+    .badge svg { width: 18px; height: 18px; }
+
+    .grid { display:grid; gap: var(--gap); grid-template-columns: 1.1fr 1fr; }
+    @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } header { grid-template-columns: 1fr; text-align:center; } .avatar{ margin: 0 auto; } }
+
+    section.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 18px; }
+    section.card h2 { margin: 0 0 12px 0; font-size: 1.25rem; }
+
+    .about p { margin: 0.4rem 0; }
+
+    .interests { display:flex; flex-wrap: wrap; gap:10px; }
+    .chip { border: 1px solid var(--border); background: rgba(255,255,255,.03); padding: 8px 12px; border-radius: 999px; font-size: .95rem; }
+
+    .btnrow { display:flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 16px; border-radius: 12px; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); font-weight:700; text-decoration:none; box-shadow: var(--shadow); }
+    .btn:hover { transform: translateY(-1px); transition: transform .15s ease; text-decoration:none; }
+
+    .pubs ol { margin: 0; padding-left: 1.2rem; }
+    .pubs li { margin: 0 0 12px 0; }
+    .pubs em { color: var(--muted); font-style: italic; }
+
+    .updates ul { margin: 0; padding-left: 1.1rem; }
+    .updates li { margin: 0 0 10px 0; }
+
+    .contact form { display:grid; gap: 10px; }
+    .contact input, .contact textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text); }
+    .contact textarea { min-height: 120px; resize: vertical; }
+    .contact small { color: var(--muted); }
+
+    footer { margin-top: 26px; color: var(--muted); font-size: .95rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Profile header">
+      <img class="avatar" src="profile.jpg" alt="Portrait of Dr. Vikas Dwivedi" />
+      <div class="title">
+        <h1>Dr. Vikas Dwivedi</h1>
+        <div class="meta">
+          <div><strong>Designation:</strong> Postdoctoral Researcher</div>
+          <div><strong>Institution:</strong> CREATIS Biomedical Imaging Laboratory, INSA‑Lyon, France</div>
+        </div>
+        <div class="badges" aria-label="Quick actions">
+          <a class="badge" href="my_cv.pdf" download>
+            <!-- download icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M5 20a1 1 0 0 1 0-2h14a1 1 0 1 1 0 2H5z"/></svg>
+            Download CV
+          </a>
+          <a class="badge" href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="badge" href="https://www.linkedin.com/in/vikas-dwivedi-795606244/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="badge" href="mailto:vikas.dwivedi90@gmail.com">Email</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Left column -->
+      <div class="left">
+        <section class="card about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About</h2>
+          <p>I am a Postdoctoral Researcher at <strong>CREATIS Biomedical Imaging Laboratory</strong>, INSA‑Lyon (France). My work lies at the intersection of <em>domain‑informed AI</em>, <em>physics/biophysics‑informed learning</em>, and <em>scientific machine learning</em> (SciML) for forward and inverse problems governed by PDEs—with applications to <em>computational fluid dynamics</em> and <em>medical imaging</em>.</p>
+        </section>
+
+        <section class="card interests" aria-labelledby="interests-heading">
+          <h2 id="interests-heading">Research Interests</h2>
+          <div class="interests" role="list">
+            <span class="chip" role="listitem">Domain‑informed AI</span>
+            <span class="chip" role="listitem">Physics-/biophysics‑informed learning</span>
+            <span class="chip" role="listitem">Scientific machine learning (SciML)</span>
+            <span class="chip" role="listitem">PDE‑constrained learning</span>
+            <span class="chip" role="listitem">Computational fluid dynamics</span>
+            <span class="chip" role="listitem">Medical imaging</span>
+            <span class="chip" role="listitem">Inverse problems</span>
+          </div>
+          <div class="btnrow">
+            <a class="btn" href="my_cv.pdf" download>⬇︎ Download CV</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/vikas-dwivedi-795606244/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+
+        <section class="card pubs" aria-labelledby="pubs-heading">
+          <h2 id="pubs-heading">Selected Publications</h2>
+          <ol>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning‑driven PI‑ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.130924</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics‑informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener">doi:10.1038/s41598-024-57281-x</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noopener">doi:10.1016/j.neucom.2020.09.006</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2019). Physics informed extreme learning machine (PIELM) — a rapid method for the numerical solution of PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noopener">doi:10.1016/j.neucom.2019.12.099</a>.
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- Right column -->
+      <div class="right">
+        <section class="card updates" aria-labelledby="updates-heading">
+          <h2 id="updates-heading">Updates</h2>
+          <ul>
+            <li><em>Oct 2025</em> — Website launched. More updates coming soon.</li>
+          </ul>
+        </section>
+
+        <section class="card contact" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Get in Touch</h2>
+          <form action="mailto:vikas.dwivedi90@gmail.com" method="post" enctype="text/plain">
+            <label>
+              Your name
+              <input type="text" name="name" placeholder="Jane Doe" autocomplete="name" />
+            </label>
+            <label>
+              Your email
+              <input type="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" placeholder="Hello! I'd like to connect regarding..." ></textarea>
+            </label>
+            <button class="btn" type="submit">Send email</button>
+            <small>If the form doesn't open your email app, you can email me directly at <a href="mailto:vikas.dwivedi90@gmail.com">vikas.dwivedi90@gmail.com</a>.</small>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Dr. Vikas Dwivedi · CREATIS · INSA‑Lyon, France
+    </footer>
+  </div>
+
+  <!-- Structured data (JSON‑LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Vikas Dwivedi",
+    "jobTitle": "Postdoctoral Researcher",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "CREATIS Biomedical Imaging Laboratory, INSA-Lyon"
+    },
+    "email": "mailto:vikas.dwivedi90@gmail.com",
+    "image": "profile.jpg",
+    "url": "",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en",
+      "https://www.linkedin.com/in/vikas-dwivedi-795606244/"
+    ]
+  }
+  </script>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
