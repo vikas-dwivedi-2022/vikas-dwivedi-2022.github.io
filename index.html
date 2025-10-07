@@ -43,8 +43,10 @@
     .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0 0}
     .chip{background:var(--chip);border:1px solid var(--border);padding:.35rem .6rem;border-radius:999px;font-size:.85rem}
 
-    .social{display:flex;gap:.6rem;margin:.5rem 0}
+    .social{display:flex;gap:.6rem;margin:.5rem 0;flex-wrap:wrap}
     .social a{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);padding:.4rem .55rem;border-radius:999px;font-size:.9rem;background:var(--card)}
+    .btn-cv{display:inline-block;margin-top:.6rem;padding:.5rem 1rem;background:var(--link);color:white;border-radius:8px;font-weight:500;text-align:center;}
+    .btn-cv:hover{opacity:.9;text-decoration:none}
 
     .updates{padding:1.25rem}
     .updates h2{margin:.25rem 0 1rem}
@@ -109,6 +111,7 @@
             <a href="https://x.com/" target="_blank" rel="noreferrer">X/Twitter</a>
             <a href="mailto:you@example.com">Email</a>
           </div>
+          <a href="CV.pdf" class="btn-cv" download>Download CV</a>
         </div>
       </aside>
 
@@ -169,7 +172,6 @@
   </footer>
 
   <script>
-    // tiny helper to keep the footer fresh
     const now=new Date();
     document.getElementById('y').textContent=now.getFullYear();
     const fmt=new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short'});
