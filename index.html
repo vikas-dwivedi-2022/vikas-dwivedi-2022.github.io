@@ -1,182 +1,123 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr. Vikas Dwivedi — Home</title>
-  <meta name="description" content="Personal academic homepage" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#ffffff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--link:#1d4ed8;--chip:#f3f4f6;
-      --card:#ffffff;--shadow:0 1px 2px rgba(0,0,0,.05),0 4px 12px rgba(0,0,0,.05);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{--bg:#0b0f17;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;--link:#93c5fd;--chip:#111827;--card:#0e1522;--shadow:none}
-      img{filter:brightness(.95)}
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--text);}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:20}
-    .container{max-width:1080px;margin:0 auto;padding:0 1rem}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:56px}
-    .nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
-    .nav a{font-weight:500}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Vikas Dwivedi — Home</title>
+  <meta name="description" content="Personal academic homepage" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;--text:#111827;--muted:#6b7280;--border:#e5e7eb;--link:#1d4ed8;--chip:#f3f4f6;
+      --card:#ffffff;--shadow:0 1px 2px rgba(0,0,0,.05),0 4px 12px rgba(0,0,0,.05);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b0f17;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;--link:#93c5fd;--chip:#111827;--card:#0e1522;--shadow:none}
+      img{filter:brightness(.95)}
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--text);}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:20}
+    .container{max-width:1080px;margin:0 auto;padding:0 1rem}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    .nav a{font-weight:500}
 
-    main{padding:2rem 0}
-    .grid{display:grid;grid-template-columns:320px 1fr;gap:2rem}
-    @media (max-width:820px){.grid{grid-template-columns:1fr}}
+    main{padding:2rem 0}
+    .grid{display:grid;grid-template-columns:320px 1fr;gap:2rem}
+    @media (max-width:820px){.grid{grid-template-columns:1fr}}
 
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
-    .profile{padding:1rem}
-    .profile img{width:100%;height:auto;border-radius:12px;object-fit:cover}
-    .name{font-size:1.75rem;font-weight:700;margin:0 0 .25rem}
-    .title{font-weight:600;color:var(--text);margin:.25rem 0}
-    .affil{color:var(--muted);margin:.1rem 0}
-    .section{padding:1.25rem}
-    .section h2{margin:.25rem 0 1rem;font-size:1.25rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+    .profile{padding:1rem}
+    .profile img{width:100%;height:auto;border-radius:12px;object-fit:cover}
+    .name{font-size:1.75rem;font-weight:700;margin:0 0 .25rem}
+    .title{font-weight:600;color:var(--text);margin:.25rem 0}
+    .affil{color:var(--muted);margin:.1rem 0}
+    .section{padding:1.25rem}
+    .section h2{margin:.25rem 0 1rem;font-size:1.25rem}
 
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0 0}
-    .chip{background:var(--chip);border:1px solid var(--border);padding:.35rem .6rem;border-radius:999px;font-size:.85rem}
-
-    .social{display:flex;gap:.6rem;margin:.5rem 0;flex-wrap:wrap}
-    .social a{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);padding:.4rem .55rem;border-radius:999px;font-size:.9rem;background:var(--card)}
-    .btn-cv{display:inline-block;margin-top:.6rem;padding:.5rem 1rem;background:var(--link);color:white;border-radius:8px;font-weight:500;text-align:center;}
-    .btn-cv:hover{opacity:.9;text-decoration:none}
-
-    .updates{padding:1.25rem}
-    .updates h2{margin:.25rem 0 1rem}
-    .updates ul{margin:0;padding-left:1rem}
-    .updates li{margin:.6rem 0}
-    .muted{color:var(--muted)}
-    footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:2rem;color:var(--muted)}
-  </style>
+    .updates{padding:1.25rem}
+    .updates h2{margin:.25rem 0 1rem}
+    .updates ul{margin:0;padding-left:1rem}
+    .updates li{margin:.6rem 0}
+    .muted{color:var(--muted)}
+    footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:2rem;color:var(--muted)}
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#" aria-label="Home" style="font-weight:700">Dr. Vikas Dwivedi</a>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#teaching">Teaching</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#activities">Professional activities</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <header>
+    <div class="container nav">
+      <a href="#" aria-label="Home" style="font-weight:700">Dr. Vikas Dwivedi</a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#publications">Publications</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <main class="container" id="home">
-    <div class="grid">
-      <!-- Left column: photo + quick info -->
-      <aside class="card profile">
-        <img src="profile.jpg" alt="Profile photo of Dr. Vikas Dwivedi" />
-        <h1 class="name">Dr. Vikas Dwivedi</h1>
-        <div class="title">Postdoctoral Researcher</div>
-        <div class="affil">Department / School</div>
-        <div class="affil">Your University</div>
+  <main class="container" id="home">
+    <div class="grid">
+            <aside class="card profile">
+        <img src="profile.jpg" alt="Profile photo of Dr. Vikas Dwivedi" />
+        <h1 class="name">Dr. Vikas Dwivedi</h1>
+        <div class="title">Postdoctoral Researcher</div>
+        <div class="affil">Department / School</div>
+        <div class="affil">Your University</div>
 
-        <div class="section">
-          <div style="font-weight:600;margin-bottom:.4rem">Contact</div>
-          <div><a href="mailto:you@example.com">you@example.com</a></div>
-          <div><a href="mailto:alternate@university.edu">alternate@university.edu</a></div>
-        </div>
+        <div class="section">
+          <div style="font-weight:600;margin-bottom:.4rem">Contact</div>
+          <div><a href="mailto:you@example.com">you@example.com</a></div>
+          <div><a href="mailto:alternate@university.edu">alternate@university.edu</a></div>
+        </div>
 
-        <div class="section">
-          <div style="font-weight:600;margin-bottom:.4rem">Research</div>
-          <div>Short 1–2 line summary of your current research focus.</div>
-        </div>
+        <div class="section">
+          <div style="font-weight:600;margin-bottom:.4rem">Research</div>
+          <div>Short 1–2 line summary of your current research focus.</div>
+        </div>
+      </aside>
 
-        <div class="section">
-          <div style="font-weight:600;margin-bottom:.4rem">Research Interests</div>
-          <div class="chips">
-            <span class="chip">Scientific Computing</span>
-            <span class="chip">Machine Learning</span>
-            <span class="chip">Computer Vision</span>
-          </div>
-        </div>
+            <section>
+        <div class="card updates">
+          <h2>Updates</h2>
+          <ul>
+            <li><span class="muted">[Jul 2025]</span> Our paper on <em>Quantum Neural Network-based stabilization parameter for PDEs</em> was accepted in <em>Advances in Computers</em>.</li>
+            <li><span class="muted">[Mar 2025]</span> Paper on <em>Physics-informed neural networks for de-noising and super-resolution</em> accepted in <em>Engineering Applications of AI</em>.</li>
+            <li><span class="muted">[Dec 2024]</span> Invited talk on <em>Blood velocity inferences using physics-informed neural networks</em> at IISc Bangalore (CASML).</li>
+            <li><span class="muted">[Sep 2024]</span> Invited talk at NIT Jalandhar on physics-informed models for hemodynamics.</li>
+            <li><span class="muted">[Jul 2024]</span> Source detection paper accepted for <em>Atmospheric Environment</em>.</li>
+          </ul>
+        </div>
 
-        <div class="section">
-          <div style="font-weight:600;margin-bottom:.4rem">Find me</div>
-          <div class="social">
-            <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Scholar</a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer">X/Twitter</a>
-            <a href="mailto:you@example.com">Email</a>
-          </div>
-          <a href="CV.pdf" class="btn-cv" download>Download CV</a>
-        </div>
-      </aside>
+        <div id="publications" class="card section" style="margin-top:1rem">
+          <h2>Selected Publications</h2>
+          <ol>
+            <li><strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning-driven PI-ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2025.130924</a>.</li>
+            <li><strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics-informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noreferrer">doi:10.1038/s41598-024-57281-x</a>.</li>
+            <li><strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2020.09.006</a>.</li>
+            <li><strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2019). Physics informed extreme learning machine (PIELM) — a rapid method for the numerical solution of PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2019.12.099</a>.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </main>
 
-      <!-- Right column: content -->
-      <section>
-        <div class="card updates">
-          <h2>Updates</h2>
-          <ul>
-            <li><span class="muted">[Jul 2025]</span> Our paper on <em>Quantum Neural Network-based stabilization parameter for PDEs</em> was accepted in <em>Advances in Computers</em>.</li>
-            <li><span class="muted">[Mar 2025]</span> Paper on <em>Physics-informed neural networks for de-noising and super-resolution</em> accepted in <em>Engineering Applications of AI</em>.</li>
-            <li><span class="muted">[Dec 2024]</span> Invited talk on <em>Blood velocity inferences using physics-informed neural networks</em> at IISc Bangalore (CASML).</li>
-            <li><span class="muted">[Sep 2024]</span> Invited talk at NIT Jalandhar on physics-informed models for hemodynamics.</li>
-            <li><span class="muted">[Jul 2024]</span> Source detection paper accepted for <em>Atmospheric Environment</em>.</li>
-          </ul>
-        </div>
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Dr. Vikas Dwivedi • Built with plain HTML/CSS. Last updated <span id="d"></span>.
+    </div>
+  </footer>
 
-        <div id="publications" class="card section" style="margin-top:1rem">
-          <h2>Selected Publications</h2>
-          <ol>
-            <li><strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning-driven PI-ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2025.130924</a>.</li>
-            <li><strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics-informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noreferrer">doi:10.1038/s41598-024-57281-x</a>.</li>
-            <li><strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2020.09.006</a>.</li>
-            <li><strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2019). Physics informed extreme learning machine (PIELM) — a rapid method for the numerical solution of PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noreferrer">doi:10.1016/j.neucom.2019.12.099</a>.</li>
-          </ol>
-        </div>
-
-        <div id="teaching" class="card section" style="margin-top:1rem">
-          <h2>Teaching</h2>
-          <ul>
-            <li>Spring 2025 — Course ABC123: Course Title</li>
-            <li>Fall 2024 — Course DEF456: Course Title</li>
-          </ul>
-        </div>
-
-        <div id="education" class="card section" style="margin-top:1rem">
-          <h2>Education</h2>
-          <ul>
-            <li>Ph.D., Your Field, Your University, 20XX</li>
-            <li>M.S., Your Field, Your University, 20XX</li>
-            <li>B.Tech., Your Field, Your University, 20XX</li>
-          </ul>
-        </div>
-
-        <div id="activities" class="card section" style="margin-top:1rem">
-          <h2>Professional Activities</h2>
-          <ul>
-            <li>Reviewer — Journal/Conference A, B, C</li>
-            <li>Session chair — Conference XYZ 2024</li>
-          </ul>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      © <span id="y"></span> Dr. Vikas Dwivedi • Built with plain HTML/CSS. Last updated <span id="d"></span>.
-    </div>
-  </footer>
-
-  <script>
-    const now=new Date();
-    document.getElementById('y').textContent=now.getFullYear();
-    const fmt=new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short'});
-    document.getElementById('d').textContent=fmt.format(now);
-  </script>
+  <script>
+    const now=new Date();
+    document.getElementById('y').textContent=now.getFullYear();
+    const fmt=new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short'});
+    document.getElementById('d').textContent=fmt.format(now);
+  </script>
 </body>
 </html>
