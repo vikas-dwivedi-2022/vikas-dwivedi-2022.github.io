@@ -6,7 +6,6 @@
   <title>Dr. Vikas Dwivedi — Academic Homepage</title>
   <meta name="description" content="Dr. Vikas Dwivedi — Postdoctoral Researcher at CREATIS Biomedical Imaging Laboratory, INSA-Lyon. Research: domain-informed AI, physics/biophysics-informed learning, SciML, PDE-constrained learning, CFD, medical imaging, inverse problems." />
 
-  <!-- Open Graph / Twitter for rich link previews -->
   <meta property="og:title" content="Dr. Vikas Dwivedi — Academic Homepage" />
   <meta property="og:description" content="Postdoctoral Researcher at CREATIS, INSA-Lyon. Domain-informed AI • SciML • PDE-constrained learning • CFD • Medical Imaging." />
   <meta property="og:type" content="website" />
@@ -14,19 +13,17 @@
   <meta name="twitter:card" content="summary" />
 
   <style>
-    /* ------- CSS Reset (lightweight) ------- */
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
 
-    /* ------- Design tokens ------- */
     :root {
       --bg: #0b0c10;
       --card: #0f1117;
       --text: #e6e6e6;
       --muted: #b7bec7;
-      --accent: #6ee7b7;  /* mint */
-      --accent-2: #93c5fd; /* soft blue */
+      --accent: #6ee7b7;
+      --accent-2: #93c5fd;
       --border: #1f2937;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 16px;
@@ -39,7 +36,13 @@
       }
     }
 
-    body { background: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(20,184,166,.10), transparent), var(--bg); color: var(--text); line-height: 1.6; }
+    body {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent),
+                  radial-gradient(1200px 600px at 110% 10%, rgba(20,184,166,.10), transparent),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
     a { color: var(--accent-2); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -47,35 +50,75 @@
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 36px 18px 80px; }
 
     header {
-      display: grid; gap: var(--gap);
-      grid-template-columns: 140px 1fr; align-items: center;
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: 140px 1fr;
+      align-items: center;
       background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 60%);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px; margin-bottom: 28px;
+      padding: 18px;
+      margin-bottom: 28px;
     }
-    .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.15); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
-    .title h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 4px 0; letter-spacing: .2px; }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+
+    .title h1 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 4px 0;
+      letter-spacing: .2px;
+    }
+
     .meta { color: var(--muted); margin: 6px 0 0; }
-    .badges { display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-    .badge { display:inline-flex; align-items:center; gap:8px; padding: 10px 14px; border: 1px solid var(--border); background: var(--card); border-radius: 999px; font-weight:600; box-shadow: var(--shadow); }
+
+    .badges {
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 999px;
+      font-weight:600;
+      box-shadow: var(--shadow);
+    }
+
     .badge svg { width: 18px; height: 18px; }
 
     .grid { display:grid; gap: var(--gap); grid-template-columns: 1.1fr 1fr; }
-    @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } header { grid-template-columns: 1fr; text-align:center; } .avatar{ margin: 0 auto; } }
 
-    section.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px 18px; }
+    @media (max-width: 900px){
+      .grid { grid-template-columns: 1fr; }
+      header { grid-template-columns: 1fr; text-align:center; }
+      .avatar{ margin: 0 auto; }
+    }
+
+    section.card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 18px;
+    }
+
     section.card h2 { margin: 0 0 12px 0; font-size: 1.25rem; }
 
     .about p { margin: 0.4rem 0; }
-
-    .interests { display:flex; flex-wrap: wrap; gap:10px; }
-    .chip { border: 1px solid var(--border); background: rgba(255,255,255,.03); padding: 8px 12px; border-radius: 999px; font-size: .95rem; }
-
-    .btnrow { display:flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 16px; border-radius: 12px; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); font-weight:700; text-decoration:none; box-shadow: var(--shadow); }
-    .btn:hover { transform: translateY(-1px); transition: transform .15s ease; text-decoration:none; }
 
     .pubs ol { margin: 0; padding-left: 1.2rem; }
     .pubs li { margin: 0 0 12px 0; }
@@ -84,12 +127,14 @@
     .updates ul { margin: 0; padding-left: 1.1rem; }
     .updates li { margin: 0 0 10px 0; }
 
-    .contact form { display:grid; gap: 10px; }
-    .contact input, .contact textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--text); }
-    .contact textarea { min-height: 120px; resize: vertical; }
-    .contact small { color: var(--muted); }
+    .muted { color: var(--muted); }
 
-    footer { margin-top: 26px; color: var(--muted); font-size: .95rem; text-align: center; }
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: .95rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -99,13 +144,15 @@
       <div class="title">
         <h1>Dr. Vikas Dwivedi</h1>
         <div class="meta">
-          <div> Postdoctoral Researcher</div>
-          <div> CREATIS Biomedical Imaging Laboratory, INSA‑Lyon, France</div>
+          <div>Postdoctoral Researcher</div>
+          <div>CREATIS Biomedical Imaging Laboratory, INSA-Lyon, France</div>
         </div>
         <div class="badges" aria-label="Quick actions">
           <a class="badge" href="my_cv.pdf" download>
-            <!-- download icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M5 20a1 1 0 0 1 0-2h14a1 1 0 1 1 0 2H5z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/>
+              <path d="M5 20a1 1 0 0 1 0-2h14a1 1 0 1 1 0 2H5z"/>
+            </svg>
             Download CV
           </a>
           <a class="badge" href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
@@ -116,34 +163,20 @@
     </header>
 
     <main class="grid">
-      <!-- Left column -->
       <div class="left">
         <section class="card about" aria-labelledby="about-heading">
           <h2 id="about-heading">About</h2>
-          <p>I am a Postdoctoral Researcher at <strong>CREATIS Biomedical Imaging Laboratory</strong>, INSA‑Lyon, France. My main research interest is in scientific ML (SciML) for forward and inverse problems governed by PDEs—with applications to computational fluid dynamics and medical imaging.</p>
-        </section>
-
-        <section class="card interests" aria-labelledby="interests-heading">
-          <h2 id="interests-heading">Research Interests</h2>
-          <div class="interests" role="list">
-            <span class="chip" role="listitem">Domain‑informed AI</span>
-            <span class="chip" role="listitem">Physics-/biophysics‑informed learning</span>
-            <span class="chip" role="listitem">Scientific machine learning (SciML)</span>
-            <span class="chip" role="listitem">PDE‑constrained learning</span>
-            <span class="chip" role="listitem">Computational fluid dynamics</span>
-            <span class="chip" role="listitem">Medical imaging</span>
-            <span class="chip" role="listitem">Inverse problems</span>
-          </div>
+          <p>I am a Postdoctoral Researcher at <strong>CREATIS Biomedical Imaging Laboratory</strong>, INSA-Lyon, France. My main research interest is in scientific ML (SciML) for forward and inverse problems governed by PDEs—with applications to computational fluid dynamics and medical imaging.</p>
         </section>
 
         <section class="card pubs" aria-labelledby="pubs-heading">
-          <h2 id="pubs-heading">Selected Publications</h2>
+          <h2 id="pubs-heading">Journal Articles</h2>
           <ol>
             <li>
-              <strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning‑driven PI‑ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.130924</a>.
+              <strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning-driven PI-ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.130924</a>.
             </li>
             <li>
-              <strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics‑informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener">doi:10.1038/s41598-024-57281-x</a>.
+              <strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics-informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener">doi:10.1038/s41598-024-57281-x</a>.
             </li>
             <li>
               <strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noopener">doi:10.1016/j.neucom.2020.09.006</a>.
@@ -155,72 +188,30 @@
         </section>
       </div>
 
-            <!-- Right column -->
       <div class="right">
-        <section class="card updates" aria-labelledby="updates-heading">
-          <h2 id="updates-heading">Updates</h2>
-
-          <h3>Februray 2026</h3>
-          <h4>Journal Papers</h4>
-          <ul>
-          <li>
-          <strong>Dwivedi, V.</strong>, Schiassi, E. </strong>, Sixou, B., &amp; Sigovan, M. (2026). Gated X-TFC: Soft Domain Decomposition for Forward and Inverse Problems in Sharp-Gradient PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2026.133090" target="_blank" rel="noopener">doi:10.1016/j.neucom.2020.09.006</a>.
-          </li>
-   
-
-          </ul>  
-
-          <h3>October 2025</h3>
-          <h4>Conference Papers</h4>
+        <section class="card updates" aria-labelledby="conferences-heading">
+          <h2 id="conferences-heading">Conferences</h2>
           <ul>
             <li><strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (Dec 2025). <a href="https://openreview.net/forum?id=Mhlu6U0Fu5" target="_blank" rel="noopener"><em>Curriculum-Learning PIELMs for Hemodynamic Flows.</em></a> <strong>17th OPT Workshop @ NeurIPS, San Diego, USA</strong>.</li>
             <li><strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (Dec 2025). <a href="https://openreview.net/forum?id=FSesYAyt8F" target="_blank" rel="noopener"><em>Empirical-Bayes XTFC for Inverse Parameter Estimation.</em></a> <strong>17th OPT Workshop @ NeurIPS, San Diego, USA</strong>.</li>
             <li>Srinivasan, A. G., <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (Dec 2025). <a href="https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_328.pdf" target="_blank" rel="noopener"><em>Deep vs. Shallow: Benchmarking Physics-Informed Neural Architectures on the Biharmonic Equation.</em></a> <strong>8th ML4PS Workshop @ NeurIPS, San Diego, USA</strong>.</li>
-    
-          </ul>
-
-          <h4>Preprints</h4>
-          <ul>
-            <li><strong>Dwivedi, V.</strong>, Srinivasan, B., Sigovan, M., &amp; Sixou, B. (2025). <em>Kernel-Adaptive PI-ELMs for Forward and Inverse Problems in PDEs with Sharp Gradients.</em> <a href="https://arxiv.org/abs/2507.10241" target="_blank" rel="noopener">arXiv:2507.10241</a>. <span class="muted">(Submitted to Neural Networks)</span></li>
-              
-          </ul>
-
-          <h3>July 2025</h3>
-          <ul>
-            <li>Attended summer AI school in Paris — <a href="https://aissai.cnrs.fr/en/aiscience-summer-school-2025-university-of-chicago-center-in-paris/" target="_blank" rel="noopener">AI Science Summer School 2025 (UChicago Center in Paris)</a>.</li>
           </ul>
         </section>
 
-
-
-        <section class="card contact" aria-labelledby="contact-heading">
-          <h2 id="contact-heading">Get in Touch</h2>
-          <form action="mailto:vikas.dwivedi90@gmail.com" method="post" enctype="text/plain">
-            <label>
-              Your name
-              <input type="text" name="name" placeholder="Jane Doe" autocomplete="name" />
-            </label>
-            <label>
-              Your email
-              <input type="email" name="email" placeholder="jane@example.com" autocomplete="email" />
-            </label>
-            <label>
-              Message
-              <textarea name="message" placeholder="Hello! I'd like to connect regarding..." ></textarea>
-            </label>
-            <button class="btn" type="submit">Send email</button>
-            <small>If the form doesn't open your email app, you can email me directly at <a href="mailto:vikas.dwivedi90@gmail.com">vikas.dwivedi90@gmail.com</a>.</small>
-          </form>
+        <section class="card updates" aria-labelledby="preprints-heading">
+          <h2 id="preprints-heading">Preprints</h2>
+          <ul>
+            <li><strong>Dwivedi, V.</strong>, Srinivasan, B., Sigovan, M., &amp; Sixou, B. (2025). <em>Kernel-Adaptive PI-ELMs for Forward and Inverse Problems in PDEs with Sharp Gradients.</em> <a href="https://arxiv.org/abs/2507.10241" target="_blank" rel="noopener">arXiv:2507.10241</a>. <span class="muted">(Submitted to Neural Networks)</span></li>
+          </ul>
         </section>
       </div>
     </main>
 
     <footer>
-      © <span id="year"></span> Dr. Vikas Dwivedi · CREATIS · INSA‑Lyon, France
+      © <span id="year"></span> Dr. Vikas Dwivedi · CREATIS · INSA-Lyon, France
     </footer>
   </div>
 
-  <!-- Structured data (JSON‑LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -242,7 +233,6 @@
   </script>
 
   <script>
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
