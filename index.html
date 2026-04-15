@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Vikas Dwivedi — Academic Homepage</title>
-  <meta name="description" content="Dr. Vikas Dwivedi — Postdoctoral Researcher at CREATIS Biomedical Imaging Laboratory, INSA-Lyon. Research: domain-informed AI, physics/biophysics-informed learning, SciML, PDE-constrained learning, CFD, medical imaging, inverse problems." />
+  <meta name="description" content="Dr. Vikas Dwivedi — Postdoctoral Researcher at CREATIS Biomedical Imaging Laboratory, INSA-Lyon. Research: scientific machine learning, PDE-constrained learning, computational fluid dynamics, medical imaging, and inverse problems." />
 
   <meta property="og:title" content="Dr. Vikas Dwivedi — Academic Homepage" />
-  <meta property="og:description" content="Postdoctoral Researcher at CREATIS, INSA-Lyon. Domain-informed AI • SciML • PDE-constrained learning • CFD • Medical Imaging." />
+  <meta property="og:description" content="Postdoctoral Researcher at CREATIS, INSA-Lyon. Scientific ML • PDE-constrained learning • CFD • Medical Imaging." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="profile.jpg" />
   <meta name="twitter:card" content="summary" />
@@ -30,16 +30,23 @@
       --maxw: 1080px;
       --gap: 22px;
     }
+
     @media (prefers-color-scheme: light) {
       :root {
-        --bg: #f7fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow: 0 10px 30px rgba(0,0,0,.08);
+        --bg: #f7fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --border: #e5e7eb;
+        --shadow: 0 10px 30px rgba(0,0,0,.08);
       }
     }
 
     body {
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent),
-                  radial-gradient(1200px 600px at 110% 10%, rgba(20,184,166,.10), transparent),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.12), transparent),
+        radial-gradient(1200px 600px at 110% 10%, rgba(20,184,166,.10), transparent),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -80,32 +87,36 @@
     .meta { color: var(--muted); margin: 6px 0 0; }
 
     .badges {
-      display:flex;
+      display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 12px;
     }
 
     .badge {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 10px 14px;
       border: 1px solid var(--border);
       background: var(--card);
       border-radius: 999px;
-      font-weight:600;
+      font-weight: 600;
       box-shadow: var(--shadow);
     }
 
     .badge svg { width: 18px; height: 18px; }
 
-    .grid { display:grid; gap: var(--gap); grid-template-columns: 1.1fr 1fr; }
+    .grid {
+      display: grid;
+      gap: var(--gap);
+      grid-template-columns: 1.1fr 1fr;
+    }
 
-    @media (max-width: 900px){
+    @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
-      header { grid-template-columns: 1fr; text-align:center; }
-      .avatar{ margin: 0 auto; }
+      header { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin: 0 auto; }
     }
 
     section.card {
@@ -116,7 +127,10 @@
       padding: 20px 18px;
     }
 
-    section.card h2 { margin: 0 0 12px 0; font-size: 1.25rem; }
+    section.card h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.25rem;
+    }
 
     .about p { margin: 0.4rem 0; }
 
@@ -128,6 +142,67 @@
     .updates li { margin: 0 0 10px 0; }
 
     .muted { color: var(--muted); }
+
+    .btnrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      transition: transform .15s ease;
+      text-decoration: none;
+    }
+
+    .scholar-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 12px;
+      background: rgba(255,255,255,.03);
+      text-align: center;
+    }
+
+    .stat-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 560px) {
+      .scholar-stats {
+        grid-template-columns: 1fr;
+      }
+    }
 
     footer {
       margin-top: 26px;
@@ -169,72 +244,96 @@
           <p>I am a Postdoctoral Researcher at <strong>CREATIS Biomedical Imaging Laboratory</strong>, INSA-Lyon, France. My main research interest is in scientific ML (SciML) for forward and inverse problems governed by PDEs—with applications to computational fluid dynamics and medical imaging.</p>
         </section>
 
-<section class="card pubs" aria-labelledby="pubs-heading">
-  <h2 id="pubs-heading">Journal Articles</h2>
-  <ol>
-    <li>
-      <strong>Dwivedi, V.</strong>, Schiassi, E., Sixou, B., &amp; Sigovan, M. (2026). Gated X-TFC: Soft Domain Decomposition for Forward and Inverse Problems in Sharp-Gradient PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2026.133090" target="_blank" rel="noopener">doi:10.1016/j.neucom.2026.133090</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning-driven PI-ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.130924</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics-informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener">doi:10.1038/s41598-024-57281-x</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2022). A normal equation-based extreme learning machine for solving linear partial differential equations. <em>Journal of Computing and Information Science in Engineering</em>. <a href="https://doi.org/10.1115/1.4051530" target="_blank" rel="noopener">doi:10.1115/1.4051530</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noopener">doi:10.1016/j.neucom.2020.09.006</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2020). Solution of biharmonic equation in complicated geometries with physics informed extreme learning machine. <em>Journal of Computing and Information Science in Engineering</em>. <a href="https://doi.org/10.1115/1.4046892" target="_blank" rel="noopener">doi:10.1115/1.4046892</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2019). Physics informed extreme learning machine (PIELM) — a rapid method for the numerical solution of PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noopener">doi:10.1016/j.neucom.2019.12.099</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2018). Prediction of transition in temporal mixing layer using ILES. <em>International Journal of Advances in Engineering Sciences and Applied Mathematics</em>. <a href="https://doi.org/10.1007/s12572-018-0218-9" target="_blank" rel="noopener">doi:10.1007/s12572-018-0218-9</a>.
-    </li>
-  </ol>
-</section>
+        <section class="card pubs" aria-labelledby="pubs-heading">
+          <h2 id="pubs-heading">Journal Articles</h2>
+          <ol>
+            <li>
+              <strong>Dwivedi, V.</strong>, Schiassi, E., Sixou, B., &amp; Sigovan, M. (2026). Gated X-TFC: Soft Domain Decomposition for Forward and Inverse Problems in Sharp-Gradient PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2026.133090" target="_blank" rel="noopener">doi:10.1016/j.neucom.2026.133090</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sixou, B., &amp; Sigovan, M. (2025). Curriculum learning-driven PI-ELMs for fluid flow simulations. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener">doi:10.1016/j.neucom.2025.130924</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Srinivasan, B., &amp; Krishnamurthi, G. (2024). Physics-informed contour selection for rapid image segmentation. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener">doi:10.1038/s41598-024-57281-x</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2022). A normal equation-based extreme learning machine for solving linear partial differential equations. <em>Journal of Computing and Information Science in Engineering</em>. <a href="https://doi.org/10.1115/1.4051530" target="_blank" rel="noopener">doi:10.1115/1.4051530</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Parashar, N., &amp; Srinivasan, B. (2020). Distributed learning machines for solving forward and inverse PDE problems. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noopener">doi:10.1016/j.neucom.2020.09.006</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2020). Solution of biharmonic equation in complicated geometries with physics informed extreme learning machine. <em>Journal of Computing and Information Science in Engineering</em>. <a href="https://doi.org/10.1115/1.4046892" target="_blank" rel="noopener">doi:10.1115/1.4046892</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2019). Physics informed extreme learning machine (PIELM) — a rapid method for the numerical solution of PDEs. <em>Neurocomputing</em>. <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noopener">doi:10.1016/j.neucom.2019.12.099</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2018). Prediction of transition in temporal mixing layer using ILES. <em>International Journal of Advances in Engineering Sciences and Applied Mathematics</em>. <a href="https://doi.org/10.1007/s12572-018-0218-9" target="_blank" rel="noopener">doi:10.1007/s12572-018-0218-9</a>.
+            </li>
+          </ol>
+        </section>
       </div>
 
       <div class="right">
-<section class="card updates" aria-labelledby="conferences-heading">
-  <h2 id="conferences-heading">Conferences</h2>
-  <ul>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). Kernel-Adaptive Physics-Informed Meta-Learning for Parametric Linear PDEs. <em>AI&amp;PDE: ICLR 2026 Workshop on AI and Partial Differential Equations</em>. <a href="https://openreview.net/forum?id=YyTEEVEVid" target="_blank" rel="noopener">openreview</a>.
-    </li>
-    <li>
-      Daniel, A., <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2026). AB-PIELMS: Adaptive-Basis Physics-Informed Extreme Learning Machines for Residual-Driven Domain Decomposition. <em>AI&amp;PDE: ICLR 2026 Workshop on AI and Partial Differential Equations</em>. <a href="https://openreview.net/forum?id=QWbki1SyWm" target="_blank" rel="noopener">openreview</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2025). Curriculum-Learning PIELMs for Hemodynamic Flows. <em>OPT 2025: Optimization for Machine Learning</em>. <a href="https://openreview.net/forum?id=Mhlu6U0Fu5" target="_blank" rel="noopener">openreview</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2025). Empirical-Bayes XTFC for Inverse Parameter Estimation. <em>OPT 2025: Optimization for Machine Learning</em>. <a href="https://openreview.net/forum?id=FSesYAyt8F" target="_blank" rel="noopener">openreview</a>.
-    </li>
-    <li>
-      Srinivasan, A. G., <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2025). Deep vs. Shallow: Benchmarking Physics-Informed Neural Architectures on the Biharmonic Equation. <em>ML4PS 2025: Machine Learning for the Physical Sciences Workshop</em>. <a href="https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_328.pdf" target="_blank" rel="noopener">paper</a>.
-    </li>
-  </ul>
-</section>
-<section class="card updates" aria-labelledby="preprints-heading">
-  <h2 id="preprints-heading">Preprints</h2>
-  <ul>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). <em>Meta-Learned Basis Adaptation for Parametric Linear PDEs.</em> <a href="https://arxiv.org/abs/2604.09289" target="_blank" rel="noopener">arXiv:2604.09289</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). <em>Soft Partition-based KAPI-ELM for Multi-Scale PDEs.</em> <a href="https://arxiv.org/abs/2601.08719" target="_blank" rel="noopener">arXiv:2601.08719</a>.
-    </li>
-    <li>
-      <strong>Dwivedi, V.</strong>, Srinivasan, B., Sigovan, M., &amp; Sixou, B. (2025). <em>Kernel-Adaptive PI-ELMs for Forward and Inverse Problems in PDEs with Sharp Gradients.</em> <a href="https://arxiv.org/abs/2507.10241" target="_blank" rel="noopener">arXiv:2507.10241</a>.
-    </li>
-  </ul>
-</section>
+        <section class="card" aria-labelledby="scholar-heading">
+          <h2 id="scholar-heading">Google Scholar</h2>
+          <div class="scholar-stats">
+            <div class="stat">
+              <span class="stat-label">Citations</span>
+              <span class="stat-value">000</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">h-index</span>
+              <span class="stat-value">00</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">i10-index</span>
+              <span class="stat-value">00</span>
+            </div>
+          </div>
+          <div class="btnrow">
+            <a class="btn" href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en" target="_blank" rel="noopener">
+              View Google Scholar Profile
+            </a>
+          </div>
+        </section>
+
+        <section class="card updates" aria-labelledby="conferences-heading">
+          <h2 id="conferences-heading">Conferences</h2>
+          <ul>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). Kernel-Adaptive Physics-Informed Meta-Learning for Parametric Linear PDEs. <em>AI&amp;PDE: ICLR 2026 Workshop on AI and Partial Differential Equations</em>. <a href="https://openreview.net/forum?id=YyTEEVEVid" target="_blank" rel="noopener">openreview</a>.
+            </li>
+            <li>
+              Daniel, A., <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2026). AB-PIELMS: Adaptive-Basis Physics-Informed Extreme Learning Machines for Residual-Driven Domain Decomposition. <em>AI&amp;PDE: ICLR 2026 Workshop on AI and Partial Differential Equations</em>. <a href="https://openreview.net/forum?id=QWbki1SyWm" target="_blank" rel="noopener">openreview</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2025). Curriculum-Learning PIELMs for Hemodynamic Flows. <em>OPT 2025: Optimization for Machine Learning</em>. <a href="https://openreview.net/forum?id=Mhlu6U0Fu5" target="_blank" rel="noopener">openreview</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2025). Empirical-Bayes XTFC for Inverse Parameter Estimation. <em>OPT 2025: Optimization for Machine Learning</em>. <a href="https://openreview.net/forum?id=FSesYAyt8F" target="_blank" rel="noopener">openreview</a>.
+            </li>
+            <li>
+              Srinivasan, A. G., <strong>Dwivedi, V.</strong>, &amp; Srinivasan, B. (2025). Deep vs. Shallow: Benchmarking Physics-Informed Neural Architectures on the Biharmonic Equation. <em>ML4PS 2025: Machine Learning for the Physical Sciences Workshop</em>. <a href="https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_328.pdf" target="_blank" rel="noopener">paper</a>.
+            </li>
+          </ul>
+        </section>
+
+        <section class="card updates" aria-labelledby="preprints-heading">
+          <h2 id="preprints-heading">Preprints</h2>
+          <ul>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). <em>Meta-Learned Basis Adaptation for Parametric Linear PDEs.</em> <a href="https://arxiv.org/abs/2604.09289" target="_blank" rel="noopener">arXiv:2604.09289</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Sigovan, M., &amp; Sixou, B. (2026). <em>Soft Partition-based KAPI-ELM for Multi-Scale PDEs.</em> <a href="https://arxiv.org/abs/2601.08719" target="_blank" rel="noopener">arXiv:2601.08719</a>.
+            </li>
+            <li>
+              <strong>Dwivedi, V.</strong>, Srinivasan, B., Sigovan, M., &amp; Sixou, B. (2025). <em>Kernel-Adaptive PI-ELMs for Forward and Inverse Problems in PDEs with Sharp Gradients.</em> <a href="https://arxiv.org/abs/2507.10241" target="_blank" rel="noopener">arXiv:2507.10241</a>.
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
 
