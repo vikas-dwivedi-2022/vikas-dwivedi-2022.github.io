@@ -323,6 +323,18 @@
       text-align: center;
     }
 
+    .visitor-counter {
+      margin-top: 7px;
+      line-height: 1;
+    }
+
+    .visitor-counter img {
+      display: inline-block;
+      height: 20px;
+      width: auto;
+      vertical-align: middle;
+    }
+
     @media (max-width: 900px) {
       .intro-grid, .research-grid { grid-template-columns: 1fr; }
       .wide { grid-column: auto; }
@@ -533,6 +545,12 @@
 
     <footer>
       © <span id="year"></span> Dr. Vikas Dwivedi · CREATIS · INSA-Lyon, France
+      <div class="visitor-counter">
+        <img
+          src="https://hits.sh/vikas-dwivedi-2022.github.io.svg?style=flat-square&amp;label=Visitors"
+          alt="Website visitor count"
+        />
+      </div>
     </footer>
   </div>
 
