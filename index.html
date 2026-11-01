@@ -7,9 +7,9 @@
 <meta content="Dr. Vikas Dwivedi — Academic homepage, journal publications, conference and workshop papers in scientific machine learning and physics-informed AI." name="description"/>
 <meta content="website" property="og:type"/>
 <meta content="Dr. Vikas Dwivedi | Research and Publications" property="og:title"/>
-<meta content="Academic homepage, journal articles, conference papers, and workshop papers." property="og:description"/>
+<meta content="Research interests, journal articles, conference papers, and workshop papers." property="og:description"/>
 <meta content="https://vikas-dwivedi-2022.github.io/profile.jpg" property="og:image"/>
-<title>Dr. Vikas Dwivedi | Publications</title>
+<title>Dr. Vikas Dwivedi | Research and Publications</title>
 <style>
 /* Academic redesign inspired by the clean, publication-first style of Odyssée Merveille's site.
    Original stylesheet; no external libraries or remote fonts required. */
@@ -103,13 +103,24 @@ a:focus-visible,summary:focus-visible{outline:3px solid #8fcbd6;outline-offset:4
   .pub-list.numbered .pub-entry { padding: 9px 0 14px 4px; }
   .citation-line { font-size: 14px; }
 }
+
+/* Five concise, literature-linked research themes */
+.research-themes { border-top: 1px solid var(--line); }
+.research-theme { display: grid; grid-template-columns: 35px minmax(0, 1fr); gap: 15px; padding: 24px 0 26px; border-bottom: 1px solid var(--line); }
+.theme-index { padding-top: 4px; color: var(--accent); font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.research-theme h3 { font: 500 21px/1.4 Georgia, 'Times New Roman', serif; color: var(--head); margin: 0 0 10px; letter-spacing: -.2px; }
+.research-theme p { font-size: 14px; line-height: 1.85; margin: 0 0 10px; }
+.research-theme .theme-references { font-size: 12px; line-height: 1.7; margin: 11px 0 0; color: var(--muted); }
+.theme-references span { font-weight: 700; color: var(--head); }
+.theme-references a { font-weight: 650; }
+@media (max-width:650px) { .research-theme { grid-template-columns: 27px minmax(0,1fr); gap: 10px; padding: 21px 0 23px; } .research-theme h3 { font-size: 19px; } .research-theme p { font-size: 13.5px; } }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner">
 <a class="site-name" href="#home"><span aria-hidden="true" class="name-mark">VD</span> Vikas Dwivedi</a>
-<nav aria-label="Primary navigation" class="site-nav"><a href="#home">Home</a><a href="#about">About</a><a href="#publications">Publications</a><a class="nav-cv" href="my_cv.pdf" rel="noopener" target="_blank">CV ↗</a></nav>
+<nav aria-label="Primary navigation" class="site-nav"><a href="#home">Home</a><a href="#about">About</a><a href="#research-areas">Research</a><a href="#publications">Publications</a><a class="nav-cv" href="my_cv.pdf" rel="noopener" target="_blank">CV ↗</a></nav>
 </div></header>
 <main class="page-container" id="main">
 <section aria-labelledby="hero-heading" class="home-hero" id="home">
@@ -126,7 +137,53 @@ a:focus-visible,summary:focus-visible{outline:3px solid #8fcbd6;outline-offset:4
 <p>I completed my <strong>M.Tech at IIT Delhi</strong> and <strong>Ph.D. at IIT Madras</strong> under the supervision of <a href="https://wsai.iitm.ac.in/faculty/balaji-srinivasan/" rel="noopener" target="_blank">Prof. Balaji Srinivasan</a>. My background includes over two years in industry as a Data Scientist at Vunet Systems and almost three years of postdoctoral research in India, the United States, and France.</p>
 <p>I received the <a href="https://www.youtube.com/watch?v=ogRn6TMlKgw&amp;t=1725s" rel="noopener" target="_blank">Best PhD Thesis Award in Data Science</a> from IIT Madras.</p>
 </section>
-<section aria-labelledby="publications-heading" class="content-section" id="publications"><p class="section-label">02 / Publications</p><h2 id="publications-heading">Publications</h2>
+<section id="research-areas" class="content-section research-areas" aria-labelledby="research-heading">
+  <p class="section-label">02 / Research</p>
+  <h2 id="research-heading">Research interests</h2>
+  <div class="research-themes">
+    <section class="research-theme" aria-labelledby="theme-1-heading">
+      <div class="theme-index" aria-hidden="true">01</div>
+      <div class="theme-text">
+        <h3 id="theme-1-heading">Rapid PDE solving with physics-informed learning machines</h3>
+        <p>My research focuses on developing computationally efficient alternatives to deep Physics-Informed Neural Networks (PINNs) for solving partial differential equations (PDEs). I introduced <strong>Physics-Informed Extreme Learning Machines (PIELMs)</strong>, which employ shallow neural networks and replace iterative gradient-based training with a linear least-squares solve for linear PDEs. More recently, I extended this framework to nonlinear PDEs through <strong>curriculum learning</strong>, progressively solving a sequence of linearized problems of increasing complexity. These methods provide efficient and interpretable approaches to scientific computing, with applications including Burgers’ equation, incompressible Navier–Stokes flows, and hemodynamics.</p>
+        <p class="theme-references"><span>Relevant papers:</span> <a href="https://doi.org/10.1016/j.neucom.2019.12.099" target="_blank" rel="noopener noreferrer">Dwivedi &amp; Srinivasan (2020)</a>; <a href="https://doi.org/10.1016/j.neucom.2025.130924" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2025)</a>.</p>
+      </div>
+    </section>
+    <section class="research-theme" aria-labelledby="theme-2-heading">
+      <div class="theme-index" aria-hidden="true">02</div>
+      <div class="theme-text">
+        <h3 id="theme-2-heading">Resolving sharp gradients through domain decomposition</h3>
+        <p>Standard PINNs often struggle with localized features such as sharp gradients, boundary layers, and heterogeneous solution structures. To address the representational burden of global neural networks, I developed <strong>Distributed Learning Machines (DLMs)</strong>, which partition the computational domain into smaller regions represented by localized neural networks coupled through physics-based interface constraints. Building on the broader idea of localized representations, I subsequently developed <strong>Gated X-TFC</strong>, which employs differentiable gating functions to adapt radial basis function widths near sharp gradients without introducing explicit interface penalties. This approach preserves exact boundary-condition enforcement while improving accuracy and computational efficiency for challenging boundary-layer problems.</p>
+        <p class="theme-references"><span>Relevant papers:</span> <a href="https://doi.org/10.1016/j.neucom.2020.09.006" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2021)</a>; <a href="https://doi.org/10.1016/j.neucom.2026.133090" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2026), Gated X-TFC</a>.</p>
+      </div>
+    </section>
+    <section class="research-theme" aria-labelledby="theme-3-heading">
+      <div class="theme-index" aria-hidden="true">03</div>
+      <div class="theme-text">
+        <h3 id="theme-3-heading">Interpretability of physics-informed neural representations</h3>
+        <p>Understanding how neural networks represent PDE solutions is an important direction of my research. I developed <strong>Meta-SPINN</strong>, a physics-informed meta-learning framework that learns how the underlying basis representation changes with the physical parameters of a PDE. Unlike conventional neural representations with largely implicit internal features, Meta-SPINN employs interpretable radial basis functions whose centers, scales, orientations, and coefficients adapt to the governing physics. This allows the learned representations to reveal meaningful solution structures, including transport trajectories, diffusion patterns, and shock fronts, while enabling predictions across families of parametric PDEs.</p>
+        <p class="theme-references"><span>Relevant papers:</span> <a href="https://doi.org/10.1088/2632-2153/ae94e2" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2026), Meta-SPINN</a>.</p>
+      </div>
+    </section>
+    <section class="research-theme" aria-labelledby="theme-4-heading">
+      <div class="theme-index" aria-hidden="true">04</div>
+      <div class="theme-text">
+        <h3 id="theme-4-heading">Understanding and reducing the complexity of PINN representations</h3>
+        <p>A central question in physics-informed learning is how much representational complexity is actually required to approximate a PDE solution accurately. To investigate this, I developed <strong>Kernel-Adaptive Physics-Informed Learning Machines (KAPI-LMs)</strong>, which organize a large dictionary of radial basis functions using a smaller set of shared geometric parameters while retaining independent expansion coefficients. This framework introduces compressed variants of SPINN and PIELM, enabling substantial reductions in geometric complexity without necessarily reducing the number of physical basis functions. By controlling geometric sharing and adapting local resolution where necessary, KAPI-LMs provide a systematic approach to studying the relationship between representation complexity, approximation accuracy, and underlying physical structure.</p>
+        <p class="theme-references"><span>Relevant papers:</span> <a href="https://doi.org/10.1016/j.neunet.2026.109740" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2026), KAPI-LM</a>.</p>
+      </div>
+    </section>
+    <section class="research-theme" aria-labelledby="theme-5-heading">
+      <div class="theme-index" aria-hidden="true">05</div>
+      <div class="theme-text">
+        <h3 id="theme-5-heading">Physics-informed computer vision</h3>
+        <p>I also explore the application of physics-informed learning to computer vision, particularly medical image segmentation. I developed <strong>Physics-Informed Contour Selection (PICS)</strong>, a label-free segmentation framework that combines classical active contour models with physics-informed optimization. By representing contours using cubic splines and directly minimizing energy-based loss functions, PICS provides an interpretable and computationally lightweight alternative to conventional deep segmentation networks. The framework supports shape-based physical constraints and has been demonstrated for three-dimensional cardiac image segmentation, including left-ventricular segmentation.</p>
+        <p class="theme-references"><span>Relevant papers:</span> <a href="https://doi.org/10.1038/s41598-024-57281-x" target="_blank" rel="noopener noreferrer">Dwivedi et al. (2024)</a>.</p>
+      </div>
+    </section>
+  </div>
+</section>
+<section aria-labelledby="publications-heading" class="content-section" id="publications"><p class="section-label">03 / Publications</p><h2 id="publications-heading">Publications</h2>
 </section>
 <section aria-labelledby="heading-journals" class="content-section publication-group" id="journals">
 <div class="section-heading-row"><div><h2 id="heading-journals">Journal articles</h2></div></div>
@@ -242,7 +299,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #8fcbd6;outline-offset:4
   url = {https://www.opt-ml.org/papers/2025/paper150.pdf}
 }</pre></details></div></li></ol>
 </section>
-<p class="publication-note">For most updated research, see <a href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&amp;hl=en" rel="noopener" target="_blank">my Google Scholar profile ↗</a>.</p>
+<p class="publication-note">Bibliographic metadata is based on the Google Scholar export dated 26 October 2026, supplemented by official workshop proceedings (including NeurIPS ML4PS 2025). Publication dates can differ between online release, conference year, and journal volume. For changes after that date, see <a href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&amp;hl=en" rel="noopener" target="_blank">my Google Scholar profile ↗</a>.</p>
 </div>
 <aside aria-label="Profile and publication links" class="sidebar">
 <div class="side-module"><h3>Affiliation</h3><p><strong>CREATIS</strong><br/>Biomedical Imaging Laboratory<br/>INSA Lyon, France</p></div>
@@ -251,7 +308,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid #8fcbd6;outline-offset:4
 </main>
 <footer class="site-footer"><div class="footer-inner"><div><h3>Dr. Vikas Dwivedi</h3><p>Postdoctoral Researcher<br/>CREATIS · INSA Lyon<br/>Villeurbanne, France</p><img alt="Website visitor counter" class="counter-icon" loading="lazy" src="https://hits.sh/vikas-dwivedi-2022.github.io.svg?style=flat-square&amp;label=Visitors"/></div>
 <div><h3>Contact</h3><p><a href="mailto:vikas.dwivedi90@gmail.com">vikas.dwivedi90@gmail.com</a><br/><a href="https://www.linkedin.com/in/vikas-dwivedi-795606244/" rel="noopener" target="_blank">LinkedIn ↗</a><br/><a href="https://scholar.google.com/citations?user=mRnJPzEAAAAJ&amp;hl=en" rel="noopener" target="_blank">Google Scholar ↗</a></p></div>
-<div><h3>Explore</h3><p><a href="#publications">Publications</a><br/><a href="my_cv.pdf" rel="noopener" target="_blank">Curriculum vitae ↗</a></p></div></div>
+<div><h3>Explore</h3><p><a href="#research-areas">Research</a><br/><a href="#publications">Publications</a><br/><a href="my_cv.pdf" rel="noopener" target="_blank">Curriculum vitae ↗</a></p></div></div>
 <div class="footer-bottom">© <span id="current-year">2026</span> Vikas Dwivedi <span>·</span> CREATIS Biomedical Imaging Laboratory</div></footer>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Dr. Vikas Dwivedi", "jobTitle": "Postdoctoral Researcher", "affiliation": {"@type": "Organization", "name": "CREATIS Biomedical Imaging Laboratory, INSA Lyon"}, "email": "mailto:vikas.dwivedi90@gmail.com", "image": "https://vikas-dwivedi-2022.github.io/profile.jpg", "url": "https://vikas-dwivedi-2022.github.io/", "sameAs": ["https://scholar.google.com/citations?user=mRnJPzEAAAAJ&hl=en", "https://www.linkedin.com/in/vikas-dwivedi-795606244/"]}</script>
 <script>document.getElementById('current-year').textContent=new Date().getFullYear();</script>
